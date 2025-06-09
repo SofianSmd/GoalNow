@@ -14,14 +14,9 @@ struct HomeView: View {
     var body: some View {
         NavigationStack {
             List(viewModel.articles) { article in
-                VStack(alignment: .leading, spacing: 8) {
-                    Text(article.title)
-                        .font(.headline)
-                    Text(article.source)
-                        .font(.caption)
-                        .foregroundColor(.gray)
+                NavigationLink(destination: ArticleDetailView(article: article)) {
+                    ArticleRowView(article: article)
                 }
-                .padding(.vertical, 4)
             }
             .navigationTitle("⚽ Actus Foot")
         }
